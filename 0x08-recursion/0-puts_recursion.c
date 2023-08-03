@@ -10,10 +10,10 @@ void _puts_recursion(char *s)
 	else
 	{
 		if (*s == '.')
-			putchar('.');
+			putchar(*s);
 		else
 			if (*s == ',')
-				putchar(',');
+				putchar(*s);
 	}
 putchar(*s);
 _puts_recursion(s + 1);
