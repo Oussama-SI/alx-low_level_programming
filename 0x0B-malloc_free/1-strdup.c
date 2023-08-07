@@ -17,9 +17,9 @@ char *_strdup(char *str)
 	char *tab;
 
 	len = strlen(str);
-	tab = malloc((len + 1) * sizeof(str));
+	tab = malloc((len + 1) * sizeof(char));
 
-	if (str == NULL || tab == NULL)
+	if (str == 0 || tab == 0 || len == 0)
 		return (NULL);
 	for (i = 0; i < len ; i++)
 	{
