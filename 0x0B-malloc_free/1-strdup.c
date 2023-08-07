@@ -19,12 +19,11 @@ char *_strdup(char *str)
 	len = strlen(str);
 	tab = malloc((len + 1) * sizeof(str));
 
-	if (str == NULL && tab == NULL)
+	if (str == NULL || tab == NULL)
 		return (NULL);
-	while (i < len)
+	for (i = 0; i < len ; i++)
 	{
 		strcpy(tab, str);
-		i++;
 	}
 
 	return (tab);
