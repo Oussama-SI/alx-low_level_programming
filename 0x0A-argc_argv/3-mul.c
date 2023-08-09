@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 /**
  * main - the main function
  * @argc: number of comand line
@@ -9,12 +10,20 @@
  */
 int main(int argc, char *argv[])
 {
-	int i;
+	int mul_2;
+	int s1, s2;
 
-	if (argc > 0)
+	if (argc < 3)
 	{
-	for (i = 0; i < argc; i++)
-		printf("%s\n", argv[i]);
+		printf("Error\n");
+		return (1);
+	}
+	else
+	{
+		s1 = atoi(argv[1]);
+		s2 = atoi(argv[2]);
+	       	mul_2 = s1 * s2;
+		printf("%d\n",mul_2);
 	}
 	return (0);
 }
