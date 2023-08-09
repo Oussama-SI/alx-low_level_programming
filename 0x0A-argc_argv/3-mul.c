@@ -22,8 +22,9 @@ int main(int argc, char *argv[])
 	{
 		s1 = atoi(argv[1]);
 		s2 = atoi(argv[2]);
-	       	mul_2 = s1 * s2;
-		printf("%d\n",mul_2);
+		mul_2 = s1 * s2;
+
+		printf("%d\n", mul_2);
 	}
 	return (0);
 }
