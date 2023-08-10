@@ -14,23 +14,23 @@ int **alloc_grid(int width, int height)
 	int **dim_arr;
 	int i, j, k = 0;
 
-	dim_arr = malloc(sizeof(int *) * (height + 1));
-
-	i = 0;
-	while (i < height)
-	{
-		dim_arr = malloc(sizeof(int *) * (width + 1));
-		j = 0;
-		while (j < width)
-		{
-			dim_arr[i][j] = k;
-			j++;
-		}
-		i++;
-	}
-
 	if (width <= 0 || height <= 0)
 		return (NULL);
+
+	dim_arr = malloc(sizeof(int *) * height);
+	if (dim_arr == NULL)
+		return (NULL);
+
+	for (i = 0 ; i < height ; i++)
+	{
+		dim_arr[i] = malloc(sizeof(int *) * width);
+		if (dim_arr[i] == NULL)
+			return (NULL);
+		for (j = 0 ; j < width ; j++)
+		{
+			dim_arr[i][j] = k;
+		}
+	}
 
 	return (dim_arr);
 }
