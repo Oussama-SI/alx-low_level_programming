@@ -39,5 +39,4 @@ int **alloc_grid(int width, int height)
 	}
 
 	return (dim_arr);
-	free(dim_arr);
 }
