@@ -18,27 +18,22 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	a1 = strlen(s1);
 	a2 = strlen(s2);
 
-	arr = malloc((sizeof(char) * a1) + (sizeof(char) * n));
+	arr = malloc(sizeof(char) * (a1 + n + 1));
 		if (arr == NULL)
 			return (NULL);
-		strcpy(arr, s1);
+
+	strcpy(arr, s1);
 
 	x = malloc(sizeof(char) * n);
-	if (x == NULL)
-		strcpy(arr, s1);
+	
+	for (i = 0 ; i < n ; i++)
+		x[i] = s2[i];
 
-	if (n >= a2)
+	if (x == NULL || n >= a2)
 		strcat(arr, s2);
 	else
-	{
-		if (s2 == NULL)
-			strcpy(arr, s1);
-		else
-		{
-			for (i = 0 ; i < n ; i++)
-				x[i] = s2[i];
-			strcat(arr, x);
-		}
-	}
+		strcat(arr, x);
+
 	return (arr);
+	free(arr);
 }
