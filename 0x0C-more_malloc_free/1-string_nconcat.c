@@ -21,17 +21,24 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	arr = malloc((sizeof(char) * a1) + (sizeof(char) * n));
 		if (arr == NULL)
 			return (NULL);
+		strcpy(arr, s1);
 
 	x = malloc(sizeof(char) * n);
-	for (i = 0 ; i < n ; i++)
-		x[i] = s2[i];
+	if (x == NULL)
+		strcpy(arr, s1);
 
-
-	strcpy(arr, s1);
 	if (n >= a2)
 		strcat(arr, s2);
 	else
-		strcat(arr, x);
-
+	{
+		if (s2 == NULL)
+			strcpy(arr, s1);
+		else
+		{
+			for (i = 0 ; i < n ; i++)
+				x[i] = s2[i];
+			strcat(arr, x);
+		}
+	}
 	return (arr);
 }
