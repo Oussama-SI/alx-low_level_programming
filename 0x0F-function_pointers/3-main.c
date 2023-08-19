@@ -1,4 +1,4 @@
-#include "calc.h"
+#include "3-calc.h"
 #include <stdio.h>
 #include <stdlib.h>
 /**
@@ -8,7 +8,7 @@
  *
  * Return: result of operation
  */
-int main(int __attribute__((__unused__)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int b, d;
 	char *a;
@@ -38,7 +38,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 			}
 			else
 			{
-				printf("%d", get_op_func(a)(d, b));
+				printf("%d", get_op_func(argv[2])(d, b));
 				printf("\n");
 			}
 		}
