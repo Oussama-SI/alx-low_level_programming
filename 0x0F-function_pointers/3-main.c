@@ -4,44 +4,39 @@
 /**
  * main - to check the code
  * @argc: argument of nmbr elem used
- * @argv[]: array containers
+ * @argv: array containers
  *
  * Return: result of operation
  */
 int main(int argc, char *argv[])
 {
-	int b, d;
-	char *a;
-
-	 a = argv[2];
-	 b = atoi(argv[3]);
-	 d = atoi(argv[1]);
+	int num1, num2;
+	char *op;
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	else
+
+	num1 = atoi(argv[1]);
+	op = argv[2];
+	num2 = atoi(argv[3]);
+
+	if (get_op_func(op) == NULL || op[1] != '\0')
 	{
-		if (get_op_func(a) == NULL || a[1] != '\0')
-		{
-			printf("Error\n");
-			exit(99);
-		}
-		else
-		{
-			if ((*a == '/' || *a == '%') && b == 0)
-			{
-				printf("Error\n");
-				exit(100);
-			}
-			else
-			{
-				printf("%d", get_op_func(argv[2])(d, b));
-				printf("\n");
-			}
-		}
+		printf("Error\n");
+		exit(99);
 	}
+
+	if ((*op == '/' && num2 == 0) ||
+	    (*op == '%' && num2 == 0))
+	{
+		printf("Error\n");
+		exit(100);
+	}
+
+	printf("%d\n", get_op_func(op)(num1, num2));
+
 	return (0);
 }
