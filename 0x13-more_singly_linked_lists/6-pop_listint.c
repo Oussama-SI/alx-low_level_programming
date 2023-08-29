@@ -11,7 +11,7 @@ int pop_listint(listint_t **head)
 	int a;
 	listint_t *rm;
 
-	if (!((*head)->next))
+	if (!*head || !head)
 		return (0);
 
 	a = (*head)->n;
