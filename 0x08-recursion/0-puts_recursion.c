@@ -1,20 +1,17 @@
 #include <stdio.h>
 #include "main.h"
-
+/**
+ * _puts_recursion - make a recursive character
+ * @s: the character to recursive
+ */
 void _puts_recursion(char *s)
 {
-	if (*s == '0')
+	if (*s)
 	{
-		putchar('\n');
+		putchar(*s);
+		_puts_recursion(s + 1);
 	}
+
 	else
-	{
-		if (*s == '.')
-			putchar(*s);
-		else
-			if (*s == ',')
-				putchar(*s);
-	}
-putchar(*s);
-_puts_recursion(s + 1);
+		putchar('\n');
 }
